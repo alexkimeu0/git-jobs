@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#fece2f">
+
+    <ImageView
+        android:id="@+id/splashImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+         />
+
+    <TextView
+        android:id="@+id/splashTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/splashImg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-169dp"
+        android:fontFamily="@font/bigshot_one"
+        android:text="Git Jobs"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/slogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/splashTitle"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:text="Find your dream job"
+        />
+
+</RelativeLayout>
