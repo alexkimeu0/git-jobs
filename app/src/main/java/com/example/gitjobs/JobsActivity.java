@@ -4,16 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
+
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
@@ -22,13 +23,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class JobsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<Job> jobs;
     Adapter adapter;
+
     String URL = "https://jobs.github.com/positions.json?markdown=true";
     RequestQueue requestQueue;
     SweetAlertDialog errorDialog, successDialog, progressDialog;
@@ -36,6 +37,7 @@ public class JobsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_jobs);
 
         requestQueue = Volley.newRequestQueue(this);
@@ -50,6 +52,7 @@ public class JobsActivity extends AppCompatActivity {
         progressDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
 
         extractJobs();
+
     }
 
     private void extractJobs() {
@@ -64,7 +67,6 @@ public class JobsActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONArray response) {
                 progressDialog.dismiss();
-                Log.d("Jobs", "Jobs found" + response);
                 try {
 
                     for (int i = 0; i < response.length(); i++) {
@@ -76,9 +78,10 @@ public class JobsActivity extends AppCompatActivity {
                     String location = jobObject.getString("location");
                     String company = jobObject.getString("company");
                     String description = jobObject.getString("description");
+                    String companyLogo = jobObject.getString("company_logo");
 
 
-                    jobs.add(new Job(title, date, type, location, company, description));
+                    jobs.add(new Job(title, date, type, location, company, description, companyLogo));
 
                 }
                   adapter = new Adapter(JobsActivity.this, jobs);
@@ -97,4 +100,5 @@ public class JobsActivity extends AppCompatActivity {
         });
         requestQueue.add(jsonArrayRequest);
     }
+
 }

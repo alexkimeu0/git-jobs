@@ -9,14 +9,16 @@ public class Job {
     private String company;
     private String location;
     private String description;
+    String companyLogo;
 
-    public Job(String title, String date, String type, String company, String location, String description){
+    public Job(String title, String date, String type, String company, String location, String description, String companyLogo){
         this.title = title;
         this.date = date;
         this.type = type;
         this.company = company;
         this.location = location;
         this.description = description;
+        this.companyLogo = companyLogo;
     }
 
     public String getTitle() {
@@ -25,6 +27,14 @@ public class Job {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getCompanyLogo() {
+        return companyLogo;
+    }
+
+    public void setCompanyLogo(String companyLogo) {
+        this.companyLogo = companyLogo;
     }
 
     public String getDate() {

@@ -1,6 +1,7 @@
 package com.example.gitjobs;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -40,6 +42,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         holder.jobLocation.setText(jobs.get(position).getLocation());
         holder.jobCompany.setText(jobs.get(position).getCompany());
         holder.jobDescription.setText(jobs.get(position).getDescription());
+        Picasso.get().load(jobs.get(position).getCompanyLogo()).into(holder.companyLogo);
     }
 
     @Override

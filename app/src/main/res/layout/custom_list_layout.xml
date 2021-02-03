@@ -4,11 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#F6A938"
-    android:padding="10dp">
+    android:padding="20dp"
+    android:orientation="horizontal">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="#DFFFFFFF"
         app:cardCornerRadius="10dp">
 
         <RelativeLayout
@@ -45,6 +48,7 @@
                     <ImageView
                         android:id="@+id/companyLogo"
                         android:layout_width="100dp"
+                        android:paddingTop="15dp"
                         android:layout_height="wrap_content"
                         android:src="@drawable/logo"/>
 
@@ -92,7 +96,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="20dp"
                         android:paddingTop="5dp"
-                        android:paddingRight="0dp"
+                        android:paddingRight="5dp"
                         android:paddingBottom="5dp"
                         android:text="Company"
                         android:textColor="#000"
@@ -101,7 +105,7 @@
                         android:textAlignment="viewEnd"
                         android:layout_weight="1"
                         android:paddingStart="20dp"
-                        android:paddingEnd="0dp" />
+                        android:paddingEnd="5dp" />
 
                 </LinearLayout>
                 <TextView
@@ -109,13 +113,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_gravity="end"
-                    android:paddingEnd="0dp"
+                    android:paddingEnd="5dp"
                     android:layout_marginEnd="1dp"
                     android:layout_marginRight="1dp"
                     android:layout_weight="1"
                     android:paddingLeft="20dp"
                     android:paddingTop="5dp"
-                    android:paddingRight="20dp"
+                    android:paddingRight="5dp"
                     android:paddingBottom="5dp"
                     android:text="1st Feb 2021"
                     android:textAlignment="viewEnd"
@@ -148,7 +152,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="10dp"
-                    android:backgroundTint="#FFC107"
+                    android:backgroundTint="#C17402"
                     android:text="View Job"
                     android:textAllCaps="false"
                     android:textColor="#000"/>
