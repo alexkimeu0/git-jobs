@@ -25,7 +25,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JobsActivity extends AppCompatActivity {
+public class JobsActivity extends AppCompatActivity implements Adapter.OnJobListener{
     RecyclerView recyclerView;
     List<Job> jobs;
     Adapter adapter;
@@ -58,7 +58,6 @@ public class JobsActivity extends AppCompatActivity {
     private void extractJobs() {
 
         progressDialog.setTitle("Loading jobs");
-        progressDialog.setTitleText("Keep calm");
         progressDialog.setCancelable(true);
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
@@ -84,7 +83,7 @@ public class JobsActivity extends AppCompatActivity {
                     jobs.add(new Job(title, date, type, location, company, description, companyLogo));
 
                 }
-                  adapter = new Adapter(JobsActivity.this, jobs);
+                  adapter = new Adapter(JobsActivity.this, jobs, JobsActivity.this::OnJobClick);
                   recyclerView.setAdapter(adapter);
 
                     } catch (JSONException e) {
@@ -101,4 +100,11 @@ public class JobsActivity extends AppCompatActivity {
         requestQueue.add(jsonArrayRequest);
     }
 
+    @Override
+    public void OnJobClick(int position) {
+        jobs.get(position);
+        Intent intent = new Intent(this, JobActivity.class);
+        intent.putExtra("job", jobs.get(position));
+        startActivity(intent);
+    }
 }

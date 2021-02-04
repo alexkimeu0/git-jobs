@@ -7,13 +7,14 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.GitJobs"
         tools:replace="android:icon">
-        <activity android:name=".JobActivity"></activity>
+        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".JobActivity" />
         <activity android:name=".JobsActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

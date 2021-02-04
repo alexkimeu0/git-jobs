@@ -1,6 +1,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#F6A938"
@@ -10,7 +11,7 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="10dp"
+        app:cardElevation="5dp"
         app:cardBackgroundColor="#DFFFFFFF"
         app:cardCornerRadius="10dp">
 
@@ -26,14 +27,14 @@
 
                 <TextView
                     android:id="@+id/jobTitle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:layout_weight="1"
-                    android:paddingLeft="20dp"
-                    android:paddingTop="15dp"
-                    android:paddingRight="20dp"
-                    android:paddingBottom="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:paddingTop="25dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="5dp"
                     android:text="Job Title"
                     android:textColor="#000"
                     android:textStyle="bold"
@@ -48,9 +49,12 @@
                     <ImageView
                         android:id="@+id/companyLogo"
                         android:layout_width="100dp"
-                        android:paddingTop="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="2dp"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/logo"/>
+                        android:src="@drawable/logo"
+                        tools:ignore="RtlSymmetry"
+                        android:layout_marginEnd="2dp" />
 
                 </LinearLayout>
 
@@ -94,9 +98,9 @@
                         android:id="@+id/jobCompany"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="20dp"
+                        android:paddingLeft="10dp"
                         android:paddingTop="5dp"
-                        android:paddingRight="5dp"
+                        android:paddingRight="10dp"
                         android:paddingBottom="5dp"
                         android:text="Company"
                         android:textColor="#000"
@@ -104,8 +108,8 @@
                         android:layout_gravity="end"
                         android:textAlignment="viewEnd"
                         android:layout_weight="1"
-                        android:paddingStart="20dp"
-                        android:paddingEnd="5dp" />
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp" />
 
                 </LinearLayout>
                 <TextView
@@ -113,18 +117,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_gravity="end"
-                    android:paddingEnd="5dp"
+                    android:paddingEnd="10dp"
                     android:layout_marginEnd="1dp"
                     android:layout_marginRight="1dp"
                     android:layout_weight="1"
-                    android:paddingLeft="20dp"
+                    android:paddingLeft="10dp"
                     android:paddingTop="5dp"
-                    android:paddingRight="5dp"
+                    android:paddingRight="10dp"
                     android:paddingBottom="5dp"
                     android:text="1st Feb 2021"
                     android:textAlignment="viewEnd"
                     android:textColor="#000"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:paddingStart="10dp" />
 
                 <TextView
                     android:id="@+id/jobDescription"
@@ -138,8 +143,8 @@
                     android:maxLines="4"
                     android:ellipsize="end"
                     android:paddingTop="5dp"
-                    android:paddingEnd="5dp"
-                    android:paddingRight="5dp"
+                    android:paddingEnd="10dp"
+                    android:paddingRight="10dp"
                     android:paddingBottom="5dp"
                     android:text="The world breaks everyone, and afterwards, many are strong at the broken places."
                     android:textColor="#000"
@@ -152,7 +157,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="10dp"
-                    android:backgroundTint="#C17402"
+                    android:backgroundTint="#FF9800"
                     android:text="View Job"
                     android:textAllCaps="false"
                     android:textColor="#000"/>

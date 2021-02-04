@@ -6,6 +6,7 @@ import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,10 +21,12 @@ import java.util.List;
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     Context context;
     List<Job> jobs;
+    private OnJobListener mOnJobListener;
 
-    public Adapter(Context ctx, List<Job> jobs){
+    public Adapter(Context ctx, List<Job> jobs, OnJobListener onJobListener){
         this.context = ctx;
         this.jobs = jobs;
+        this.mOnJobListener = onJobListener;
     }
 
 
@@ -31,7 +34,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.custom_list_layout, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view, mOnJobListener);
     }
 
     @Override
@@ -50,11 +53,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         return jobs.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView jobTitle, jobType, jobDate, jobLocation, jobCompany, jobDescription;
         ImageView companyLogo;
 
-        public ViewHolder(@NonNull View itemView) {
+        Button btnMore;
+
+        OnJobListener onJobListener;
+
+        public ViewHolder(@NonNull View itemView, OnJobListener onJobListener) {
             super(itemView);
 
             jobTitle = itemView.findViewById(R.id.jobTitle);
@@ -64,6 +71,20 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             jobCompany = itemView.findViewById(R.id.jobCompany);
             jobDescription = itemView.findViewById(R.id.jobDescription);
             companyLogo = itemView.findViewById(R.id.companyLogo);
+            btnMore = itemView.findViewById(R.id.btnMore);
+            this.onJobListener = onJobListener;
+
+            btnMore.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            onJobListener.OnJobClick(getAdapterPosition());
+
+        }
+    }
+
+    public interface OnJobListener{
+        void OnJobClick(int position);
     }
 }

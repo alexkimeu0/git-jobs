@@ -1,8 +1,9 @@
 package com.example.gitjobs;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Job {
+public class Job implements Serializable {
     private String title;
     private String date;
     private String type;
